@@ -8,5 +8,6 @@ namespace Capa_Entidad
 {
     class entObra
     {
+        public string nombreObra;
     }
 }
