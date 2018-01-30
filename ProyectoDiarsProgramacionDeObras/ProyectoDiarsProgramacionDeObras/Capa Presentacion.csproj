@@ -198,6 +198,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ObraController.cs" />
     <Compile Include="Controllers\TareaController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -271,6 +272,8 @@
     <Content Include="Views\Tarea\ListaTarea.cshtml" />
     <Content Include="Views\Tarea\EditaTarea.cshtml" />
     <Content Include="Views\Tarea\NuevaTarea.cshtml" />
+    <Content Include="Views\Obra\NuevaObra.cshtml" />
+    <Content Include="Views\Obra\ListaObra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

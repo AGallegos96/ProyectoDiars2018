@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="daoObra.cs" />
     <Compile Include="daoTarea.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

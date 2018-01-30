@@ -8,6 +8,10 @@ namespace CapaEntidad
 {
     public class entObra
     {
-        public string nombreObra;
+        public int ObraID { get; set; }
+        public string Nombreobra { get; set; }
+        public string Responsableoobra { get; set; }
+        public string Tipoobra { get; set; }
+        public string Ubicacionobra { get; set; }
     }
 }
