@@ -274,6 +274,7 @@
     <Content Include="Views\Tarea\NuevaTarea.cshtml" />
     <Content Include="Views\Obra\NuevaObra.cshtml" />
     <Content Include="Views\Obra\ListaObra.cshtml" />
+    <Content Include="Views\Obra\EditaObra.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

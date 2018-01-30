@@ -32,13 +32,13 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
             return View();
         }
 
+
         [HttpPost]
         public ActionResult NuevaObra(entObra obra)
         {
             try
             {
                 Boolean inserta = logObra.Instancia.InsertaObra(obra);
-
                 if (inserta)
                 {
                     return RedirectToAction("ListaObra");
@@ -55,5 +55,27 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
 
         }
 
-    }
+        [HttpGet]
+        [HttpPost]
+        public ActionResult EditaObra(int ObraID)
+        {
+            try
+            {
+                Boolean edita = logObra.Instancia.EditaObra(new entObra { ObraID = ObraID });
+                if (edita)
+                {
+                    return RedirectToAction("ListaObra");
+                }
+                else
+                {
+                    return View();
+                }
+            }
+            catch (ApplicationException ex)
+            {
+                return RedirectToAction("EditaObra", new { msjException = ex.Message });
+            }
+
+        }
+    }   
 }
