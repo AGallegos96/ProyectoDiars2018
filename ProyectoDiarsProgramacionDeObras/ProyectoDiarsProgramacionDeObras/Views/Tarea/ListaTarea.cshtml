@@ -1,0 +1,45 @@
+﻿@model IEnumerable<CapaEntidad.entTarea>
+
+@{
+    ViewBag.Title = "ListaTarea";
+}
+
+<h2>ListaTarea</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tareaID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreTarea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.numeroDeOperarios)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tareaID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreTarea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.numeroDeOperarios)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

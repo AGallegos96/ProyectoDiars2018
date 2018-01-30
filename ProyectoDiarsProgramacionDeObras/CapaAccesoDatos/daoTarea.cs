@@ -38,6 +38,7 @@ namespace CapaAccesoDatos
                     entTarea ti = new entTarea();
                     ti.tareaID = Convert.ToInt16(dr["tareaID"]);
                     ti.nombreTarea = dr["nombreTarea"].ToString();
+                    ti.duracionTarea = Convert.ToInt16(dr["duracionTarea"]);
                     ti.numeroDeOperarios = Convert.ToInt16(dr["numeroDeOperarios"]);
                     lista.Add(ti);
                 }
@@ -59,8 +60,9 @@ namespace CapaAccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spInsertarTarea", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@prmstrnombreTarea", a.nombreTarea);
-                cmd.Parameters.AddWithValue("@prmstrestNumerooperariostarea", a.numeroDeOperarios);
+                cmd.Parameters.AddWithValue("@prmstrNombreTarea", a.nombreTarea);
+                cmd.Parameters.AddWithValue("@prmintDuracionTarea", a.duracionTarea);
+                cmd.Parameters.AddWithValue("@prmintNumerooperariostarea", a.numeroDeOperarios);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -92,6 +94,7 @@ namespace CapaAccesoDatos
                 {
                     a.tareaID = Convert.ToInt16(dr["tareaID"]);
                     a.nombreTarea = dr["nombreTarea"].ToString();
+                    a.duracionTarea = Convert.ToInt16(dr["duracionTarea"]);
                     a.numeroDeOperarios = Convert.ToInt16(dr["numeroDeOperarios"]);
                 }
             }
@@ -114,6 +117,7 @@ namespace CapaAccesoDatos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("prminttareaID", a.tareaID);
                 cmd.Parameters.AddWithValue("@prmstrnombreTarea", a.nombreTarea);
+                cmd.Parameters.AddWithValue("@prmintDuracionTarea", a.duracionTarea);
                 cmd.Parameters.AddWithValue("@prmintNumerooperariostarea", a.numeroDeOperarios);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();

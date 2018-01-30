@@ -10,6 +10,7 @@ namespace CapaEntidad
     {
         public int tareaID { get; set; }
         public string nombreTarea { get; set; }
+        public int duracionTarea { get; set; }
         public int numeroDeOperarios { get; set; }
     }
 }

@@ -27,13 +27,13 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         public ActionResult NuevaTarea()
         {
             List<entTarea> lista = logTarea.Instancia.ListarTarea();
-            var lsTipoProducto = new SelectList(lista, "idTarea", "nombreObra", "cantidadDeOperarios");
+            var lsTipoProducto = new SelectList(lista, "TareaID", "nombreObra","duracion");
             ViewBag.Lista = lsTipoProducto;
             return View();
         }
 
         [HttpPost]
-        public ActionResult NuevoTipoProducto(entTarea tp)
+        public ActionResult NuevaTarea(entTarea tp)
         {
             try
             {
