@@ -21,7 +21,7 @@ namespace CapaAccesoDatos
         public SqlConnection Conectar()
         {
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "Data Source=.; Initial Catalog=DB_EscalaSAC;Integrated Security=true";
+            cn.ConnectionString = "Data Source=.; Initial Catalog=BD_EscalaSAC;Integrated Security=true";
             //user ID=sa; Password=123456";
 
             return cn;
