@@ -40,13 +40,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="logTarea.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Capa Entidad\Capa Entidad.csproj">
+    <ProjectReference Include="..\Capa Entidad\CapaEntidad.csproj">
       <Project>{65e3bfc1-ed19-4eb3-a316-39a01f478ea6}</Project>
-      <Name>Capa Entidad</Name>
+      <Name>CapaEntidad</Name>
     </ProjectReference>
     <ProjectReference Include="..\CapaAccesoDatos\CapaAccesoDatos.csproj">
       <Project>{26c5709c-d3dd-4826-88df-05af24c48103}</Project>

@@ -5,11 +5,11 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa Presentacion", "ProyectoDiarsProgramacionDeObras\Capa Presentacion.csproj", "{C000A10A-24B9-4318-8CCA-6180D38F8806}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa Entidad", "Capa Entidad\Capa Entidad.csproj", "{65E3BFC1-ED19-4EB3-A316-39A01F478EA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaEntidad", "Capa Entidad\CapaEntidad.csproj", "{65E3BFC1-ED19-4EB3-A316-39A01F478EA6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaAccesoDatos", "CapaAccesoDatos\CapaAccesoDatos.csproj", "{26C5709C-D3DD-4826-88DF-05AF24C48103}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Capa Logica", "Capa Logica\Capa Logica.csproj", "{A26133E1-24BC-4153-B45D-F1E1F3F38F19}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaLogica", "Capa Logica\CapaLogica.csproj", "{A26133E1-24BC-4153-B45D-F1E1F3F38F19}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

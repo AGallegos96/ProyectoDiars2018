@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CapaAccesoDatos
 {
-    public class Class1
+    public class daoTarea
     {
+
     }
 }

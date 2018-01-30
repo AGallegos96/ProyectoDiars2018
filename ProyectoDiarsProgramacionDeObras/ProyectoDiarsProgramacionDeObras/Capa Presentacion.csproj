@@ -280,13 +280,13 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Capa Entidad\Capa Entidad.csproj">
+    <ProjectReference Include="..\Capa Entidad\CapaEntidad.csproj">
       <Project>{65e3bfc1-ed19-4eb3-a316-39a01f478ea6}</Project>
-      <Name>Capa Entidad</Name>
+      <Name>CapaEntidad</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Capa Logica\Capa Logica.csproj">
+    <ProjectReference Include="..\Capa Logica\CapaLogica.csproj">
       <Project>{a26133e1-24bc-4153-b45d-f1e1f3f38f19}</Project>
-      <Name>Capa Logica</Name>
+      <Name>CapaLogica</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
