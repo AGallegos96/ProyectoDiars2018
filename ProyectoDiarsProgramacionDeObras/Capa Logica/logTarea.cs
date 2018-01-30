@@ -32,7 +32,7 @@ namespace CapaLogica
             }
         }
 
-        public Boolean InsertarTipoProducto(entTarea a)
+        public Boolean InsertarTarea(entTarea a)
         {
             try
             {
@@ -46,6 +46,34 @@ namespace CapaLogica
 
         }
 
-       #endregion
+        public Boolean EditaTarea(entTarea a)
+        {
+            try
+            {
+                Boolean edita = daoTarea.Instancia.EditaTarea(a);
+                return edita;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+        public entTarea ObtenerTarea(int tareaID)
+        {
+            try
+            {
+                entTarea edita = daoTarea.Instancia.ObtenerTarea(tareaID);
+                return edita;
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+
+        }
+
+        #endregion
     }
 }
