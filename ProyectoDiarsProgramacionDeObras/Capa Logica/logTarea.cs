@@ -36,7 +36,7 @@ namespace CapaLogica
         {
             try
             {
-                Boolean Inserta = datTarea.Instancia.InsertarTarea(a);
+                Boolean Inserta = daoTarea.Instancia.InsertarTarea(a);
                 return Inserta;
             }
             catch (Exception e)
