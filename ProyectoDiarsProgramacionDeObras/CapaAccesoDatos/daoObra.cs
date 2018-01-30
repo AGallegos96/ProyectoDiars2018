@@ -132,6 +132,34 @@ namespace CapaAccesoDatos
             return elimina;
         }
 
+        public entObra ObtenerObra(int ObraID)
+        {
+            SqlCommand cmd = null;
+            entObra obra = new entObra();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_OBTENEROBRA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@prmintObraID", ObraID);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    obra.ObraID = Convert.ToInt16(dr["ObraID"]);
+                    obra.Nombreobra = dr["Nombreobra"].ToString();
+                    obra.Responsableoobra = dr["Responsableobra"].ToString();
+                    obra.Tipoobra = dr["Tipoobra"].ToString();
+                    obra.Ubicacionobra = dr["Ubicacionobra"].ToString();
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return obra;
+        }
         #endregion
     }
 }

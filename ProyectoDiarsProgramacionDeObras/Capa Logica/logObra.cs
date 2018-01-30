@@ -23,9 +23,7 @@ namespace CapaLogica
         {
             try
             {
-                List<entObra> lista = daoObra.Instancia.ListarObra();
-
-                return lista;
+                return daoObra.Instancia.ListarObra();
             }
             catch (Exception e)
             {
@@ -33,11 +31,11 @@ namespace CapaLogica
             }
         }
 
-        public Boolean InsertaObra(entObra a)
+        public entObra ObtenerObra(int ObraID)
         {
             try
             {
-                return daoObra.Instancia.InsertarObra(a);
+                return daoObra.Instancia.ObtenerObra(ObraID);
             }
             catch (Exception e)
             {
@@ -45,11 +43,23 @@ namespace CapaLogica
             }
         }
 
-        public Boolean EditaObra(entObra a)
+        public Boolean InsertaObra(entObra obra)
         {
             try
             {
-                return daoObra.Instancia.EditarObra(a);
+                return daoObra.Instancia.InsertarObra(obra);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
+
+        public Boolean EditaObra(entObra obra)
+        {
+            try
+            {
+                return daoObra.Instancia.EditarObra(obra);
             }
             catch (Exception e)
             {

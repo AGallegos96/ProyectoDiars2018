@@ -12,5 +12,6 @@ namespace CapaEntidad
         public string nombreTarea { get; set; }
         public int duracionTarea { get; set; }
         public int numeroDeOperarios { get; set; }
+        public entActividad Actividad { get; set; }
     }
 }

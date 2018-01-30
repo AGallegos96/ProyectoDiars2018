@@ -7,7 +7,7 @@
 <h2>ListaObra</h2>
 
 <p>
-    @Html.ActionLink("Crear Obra", "NuevaObra", "Obra")
+    @Html.ActionLink("Crear Obra", "NuevaObra")
 </p>
 <table class="table">
     <tr>
@@ -32,6 +32,9 @@
 @foreach (var item in Model) {
     <tr>
         <td>
+            @Html.DisplayFor(modelItem => item.ObraID)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Nombreobra)
         </td>
         <td>
@@ -44,8 +47,8 @@
             @Html.DisplayFor(modelItem => item.Ubicacionobra)
         </td>
         <td>
-            @Html.ActionLink("Editar", "EditaObra", new { @ObraID = item.ObraID}) |
-            @Html.ActionLink("Eliminar", "EliminaObra", new { @ObraID = item.ObraID })
+            @Html.ActionLink("Editar", "EditaObra", new { ObraID = item.ObraID }) |
+            @Html.ActionLink("Eliminar", "EliminaObra", new { ObraID = item.ObraID })
         </td>
     </tr>
 }

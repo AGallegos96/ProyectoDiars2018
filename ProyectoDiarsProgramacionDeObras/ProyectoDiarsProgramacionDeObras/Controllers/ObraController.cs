@@ -10,11 +10,6 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
 {
     public class ObraController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         [HttpGet]
         public ActionResult ListaObra()
         {
@@ -26,12 +21,8 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         [HttpGet]
         public ActionResult NuevaObra()
         {
-            List<entObra> lista = logObra.Instancia.ListarObra();
-            var lstObra = new SelectList(lista, "ObraID", "NombreObra", "ResponsableObra", "TipoObra", "UbicacionObra");
-            ViewBag.Lista = lstObra;
             return View();
         }
-
 
         [HttpPost]
         public ActionResult NuevaObra(entObra obra)
@@ -50,32 +41,55 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
             }
             catch (ApplicationException ex)
             {
-                return RedirectToAction("NuevaObra", new { msjException = ex.Message });
+                return RedirectToAction("ListaObra", new { msjException = ex.Message });
             }
 
         }
 
         [HttpGet]
-        [HttpPost]
         public ActionResult EditaObra(int ObraID)
+        {
+            entObra obra = logObra.Instancia.ObtenerObra(ObraID);
+            if (obra == null)
+            {
+                return HttpNotFound();
+            }
+            return View(obra);
+        }
+
+        [HttpPost]
+        public ActionResult EditaObra(entObra obra)
         {
             try
             {
-                Boolean edita = logObra.Instancia.EditaObra(new entObra { ObraID = ObraID });
+                Boolean edita = logObra.Instancia.EditaObra(obra);
                 if (edita)
                 {
                     return RedirectToAction("ListaObra");
                 }
                 else
                 {
-                    return View();
+                    return View(obra);
                 }
             }
             catch (ApplicationException ex)
             {
-                return RedirectToAction("EditaObra", new { msjException = ex.Message });
+                return RedirectToAction("ListaObra", new { msjException = ex.Message });
             }
+        }
 
+        [HttpGet]
+        public ActionResult EliminaObra(int ObraID)
+        {
+            try
+            {
+                Boolean edita = logObra.Instancia.EliminaObra(ObraID);
+                return RedirectToAction("ListaObra");
+            }
+            catch (ApplicationException ex)
+            {
+                return RedirectToAction("ListaObra", new { msjException = ex.Message });
+            }
         }
     }   
 }
