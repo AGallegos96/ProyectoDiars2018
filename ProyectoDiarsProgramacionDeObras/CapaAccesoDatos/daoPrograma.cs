@@ -37,7 +37,7 @@ namespace CapaAccesoDatos
                     entPrograma programa = new entPrograma();
                     programa.ProgramaID = Convert.ToInt16(dr["ProgramaID"]);
                     programa.Residente = daoResidente.Instancia.ObtenerResidente(1);
-                    programa.Obra = daoObra.Instancia.ObtenerObra(Convert.ToInt16(dr["ResidenteID"]));
+                    programa.Obra = daoObra.Instancia.ObtenerObra(Convert.ToInt16(dr["ObraID"]));
                     lista.Add(programa);
                 }
             }
@@ -76,7 +76,7 @@ namespace CapaAccesoDatos
             return Inserta;
         }
 
-        public entPrograma ObtenerPrograma(int ObraID)
+        public entPrograma ObtenerPrograma(int ProgramaID)
         {
             SqlCommand cmd = null;
             entPrograma programa = new entPrograma();
@@ -85,14 +85,14 @@ namespace CapaAccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_OBTENERPROGRAMA", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@prmObraID", ObraID);
+                cmd.Parameters.AddWithValue("@prmProgramaID", ProgramaID);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     programa.ProgramaID = Convert.ToInt16(dr["ProgramaID"]);
-                    programa.Residente.ResidenteID = Convert.ToInt16(dr["ResidenteID"]);
-                    programa.Obra.ObraID = Convert.ToInt16(dr["ObraID"]);
+                    programa.Residente = daoResidente.Instancia.ObtenerResidente(1);
+                    programa.Obra = daoObra.Instancia.ObtenerObra(Convert.ToInt16(dr["ObraID"]));
                 }
             }
             catch (Exception e)

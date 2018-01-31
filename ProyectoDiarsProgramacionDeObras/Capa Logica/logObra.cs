@@ -23,17 +23,7 @@ namespace CapaLogica
         {
             try
             {
-                List <entObra> lista = daoObra.Instancia.ListarObra();
-
-                foreach (entObra obra in lista)
-                {
-                    if (logPrograma.Instancia.ObtenerPrograma(obra.ObraID) == null)
-                    {
-                        logPrograma.Instancia.InsertaPrograma(new entPrograma { Obra = obra, Residente = daoResidente.Instancia.ObtenerResidente(1) });
-                    }
-                } 
-
-                return lista;
+                return daoObra.Instancia.ListarObra();
             }
             catch (Exception e)
             {

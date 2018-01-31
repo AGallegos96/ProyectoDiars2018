@@ -14,6 +14,15 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         public ActionResult ListaObra()
         {
             List<entObra> lista = logObra.Instancia.ListarObra();
+
+            foreach (entObra obra in lista)
+            {
+                if (logPrograma.Instancia.ObtenerPrograma(obra.ObraID).Obra==null)
+                {
+                    logPrograma.Instancia.InsertaPrograma(new entPrograma { Obra = obra, Residente = logResidente.Instancia.ObtenerResidente(1) });
+                }
+            }
+
             ViewBag.lista = lista;
             return View(lista);
         }
