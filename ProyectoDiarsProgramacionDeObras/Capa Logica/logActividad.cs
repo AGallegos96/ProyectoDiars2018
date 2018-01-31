@@ -19,11 +19,11 @@ namespace CapaLogica
         #endregion
 
         #region Metodos
-        public List<entActividad> ListarActividad()
+        public List<entActividad> ListarActividad(int ProgramaID)
         {
             try
             {
-                return daoActividad.Instancia.ListarActividad();
+                return daoActividad.Instancia.ListarActividad(ProgramaID);
             }
             catch (Exception e)
             {

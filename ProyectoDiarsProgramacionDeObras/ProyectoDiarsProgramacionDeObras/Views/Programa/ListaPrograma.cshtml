@@ -45,7 +45,7 @@
                 @Html.DisplayFor(modelItem => item.Obra.Ubicacionobra)
             </td>
             <td>
-                @Html.ActionLink("Seleccionar", "SeleccionaObra", new { ObraID = item.Obra.ObraID, ProgramaID = item.ProgramaID })
+                @Html.ActionLink("Seleccionar", "SeleccionaObra", new { ProgramaID = item.ProgramaID })
             </td>
         </tr>
     }

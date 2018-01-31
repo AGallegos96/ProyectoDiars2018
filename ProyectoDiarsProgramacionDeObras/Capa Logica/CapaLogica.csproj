@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="logActividad.cs" />
     <Compile Include="logObra.cs" />
+    <Compile Include="logPrograma.cs" />
+    <Compile Include="logResidente.cs" />
     <Compile Include="logTarea.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

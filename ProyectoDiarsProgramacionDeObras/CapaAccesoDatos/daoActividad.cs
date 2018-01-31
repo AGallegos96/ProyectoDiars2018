@@ -20,7 +20,7 @@ namespace CapaAccesoDatos
         #endregion
 
         #region Metodos
-        public List<entActividad> ListarActividad()
+        public List<entActividad> ListarActividad(int ProgramaID)
         {
             SqlCommand cmd = null;
             List<entActividad> lista = new List<entActividad>();
@@ -29,6 +29,7 @@ namespace CapaAccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_LISTARACTIVIDAD", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@prmProgramaID", ProgramaID);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())

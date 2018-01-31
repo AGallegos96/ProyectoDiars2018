@@ -13,18 +13,17 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         [HttpGet]
         public ActionResult ListaPrograma()
         {
-            List<entObra> lista = logObra.Instancia.ListarObra();
+            List<entPrograma> lista = logPrograma.Instancia.ListarPrograma();
             ViewBag.lista = lista;
             return View(lista);
         }
 
         [HttpGet]
-        public ActionResult SeleccionaObra(int ObraID, int ProgramaID)
+        public ActionResult SeleccionaObra(int ProgramaID)
         {
             try
             {
-                Boolean edita = logActividad.Instancia.EliminaActividad(ObraID, ProgramaID);
-                return RedirectToAction("ListaPrograma");
+                return RedirectToAction("ListaActividad", new { ProgramaID });
             }
             catch (ApplicationException ex)
             {
