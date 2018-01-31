@@ -10,11 +10,6 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
 {
     public class TareaController : Controller
     {
-        public ActionResult Index()
-        {
-            return View();
-        }
-
         [HttpGet]
         public ActionResult ListaTarea()
         {

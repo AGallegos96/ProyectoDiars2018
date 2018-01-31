@@ -41,7 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
+    <Compile Include="daoActividad.cs" />
     <Compile Include="daoObra.cs" />
+    <Compile Include="daoPrograma.cs" />
+    <Compile Include="daoResidente.cs" />
     <Compile Include="daoTarea.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

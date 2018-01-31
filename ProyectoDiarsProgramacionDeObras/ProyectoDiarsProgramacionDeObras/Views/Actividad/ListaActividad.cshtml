@@ -1,0 +1,62 @@
+﻿@model IEnumerable<CapaEntidad.entActividad>
+
+@{
+    ViewBag.Title = "ListaActividad";
+}
+
+<h2>ListaActividad</h2>
+
+<p>
+    @Html.ActionLink("Crear Obra", "NuevaActividad")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ActividadID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombreactividad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prioridadactividad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Totaloperariosactividad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fechainicioactividad)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Fechafinactividad)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActividadID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombreactividad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prioridadactividad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Totaloperariosactividad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fechainicioactividad)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Fechafinactividad)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "EditaObra", new { ActividadID = item.ActividadID, ProgramaID = item.Programa.ProgramaID}) |
+            @Html.ActionLink("Eliminar", "EliminaObra", new { ActividadID = item.ActividadID, ProgramaID = item.Programa.ProgramaID })
+        </td>
+    </tr>
+}
+
+</table>

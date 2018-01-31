@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CapaEntidad.entPrograma>
+
+@{
+    ViewBag.Title = "Lista de Obras";
+}
+
+<h2>Seleccione una obra</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Obra.ObraID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Obra.Nombreobra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Obra.Responsableoobra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Obra.Tipoobra)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Obra.Ubicacionobra)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obra.ObraID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obra.Nombreobra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obra.Responsableoobra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obra.Tipoobra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Obra.Ubicacionobra)
+            </td>
+            <td>
+                @Html.ActionLink("Seleccionar", "SeleccionaObra", new { ObraID = item.Obra.ObraID, ProgramaID = item.ProgramaID })
+            </td>
+        </tr>
+    }
+
+</table>
