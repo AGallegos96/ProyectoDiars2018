@@ -16,7 +16,7 @@ namespace ProyectoDiarsProgramacionDeObras
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Tarea", action = "ListaTarea", id = UrlParameter.Optional }
+                defaults: new { controller = "Obra", action = "ListaObra", id = UrlParameter.Optional }
             );
         }
     }

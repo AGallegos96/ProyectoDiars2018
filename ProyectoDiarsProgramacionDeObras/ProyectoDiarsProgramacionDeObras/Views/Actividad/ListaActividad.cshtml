@@ -4,10 +4,10 @@
     ViewBag.Title = "ListaActividad";
 }
 
-<h2>ListaActividad</h2>
+<h2>Lista de Actividades</h2>
 
 <p>
-    @Html.ActionLink("Crear Obra", "NuevaActividad")
+    @Html.ActionLink("Crear Actividad", "NuevaActividad")
 </p>
 <table class="table">
     <tr>
@@ -60,3 +60,7 @@
 }
 
 </table>
+
+<div>
+    @Html.ActionLink("Regresar a la lista", "ListaPrograma", "Programa")
+</div>

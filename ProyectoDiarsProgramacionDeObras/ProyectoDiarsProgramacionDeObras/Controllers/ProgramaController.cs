@@ -23,7 +23,7 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         {
             try
             {
-                return RedirectToAction("ListaActividad", new { ProgramaID });
+                return RedirectToAction("ListaActividad", "Actividad", new { ProgramaID });
             }
             catch (ApplicationException ex)
             {

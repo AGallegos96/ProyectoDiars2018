@@ -11,7 +11,6 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
     public class ActividadController : Controller
     {
 
-
         [HttpGet]
         public ActionResult ListaActividad(int ProgramaID)
         {
