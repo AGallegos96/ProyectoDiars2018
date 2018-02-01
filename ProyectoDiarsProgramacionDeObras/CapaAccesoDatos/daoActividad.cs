@@ -36,7 +36,7 @@ namespace CapaAccesoDatos
                 {
                     entActividad actividad = new entActividad();
                     actividad.ActividadID = Convert.ToInt16(dr["ActividadID"]);
-                    actividad.Programa.ProgramaID = Convert.ToInt16(dr["ProgramaID"]);
+                    actividad.Programa = daoPrograma.Instancia.ObtenerPrograma(Convert.ToInt16(dr["ProgramaID"]));
                     actividad.Nombreactividad = dr["Nombreactividad"].ToString();
                     actividad.Prioridadactividad = dr["Prioridadactividad"].ToString();
                     actividad.Totaloperariosactividad = Convert.ToInt16(dr["Totaloperariosactividad"]);
@@ -155,7 +155,7 @@ namespace CapaAccesoDatos
                 while (dr.Read())
                 {
                     actividad.ActividadID = Convert.ToInt16(dr["ActividadID"]);
-                    actividad.Programa.ProgramaID = Convert.ToInt16(dr["ProgramaID"]);
+                    actividad.Programa = daoPrograma.Instancia.ObtenerPrograma(Convert.ToInt16(dr["ProgramaID"]));
                     actividad.Nombreactividad = dr["Nombreactividad"].ToString();
                     actividad.Prioridadactividad = dr["Prioridadactividad"].ToString();
                     actividad.Totaloperariosactividad = Convert.ToInt16(dr["Totaloperariosactividad"]);

@@ -10,7 +10,6 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
 {
     public class ActividadController : Controller
     {
-
         [HttpGet]
         public ActionResult ListaActividad(int ProgramaID)
         {
@@ -50,7 +49,9 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         [HttpGet]
         public ActionResult EditaActividad(int ActividadID, int ProgramaID)
         {
-            entActividad actividad = logActividad.Instancia.ObtenerActividad(ActividadID, ProgramaID);
+            entActividad actividad = new entActividad();
+            actividad = logActividad.Instancia.ObtenerActividad(ActividadID, ProgramaID);
+            actividad.Programa = logPrograma.Instancia.ObtenerPrograma(ProgramaID);
             if (actividad == null)
             {
                 return HttpNotFound();

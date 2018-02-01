@@ -53,8 +53,8 @@
             @Html.DisplayFor(modelItem => item.Fechafinactividad)
         </td>
         <td>
-            @Html.ActionLink("Editar", "EditaObra", new { ActividadID = item.ActividadID, ProgramaID = item.Programa.ProgramaID}) |
-            @Html.ActionLink("Eliminar", "EliminaObra", new { ActividadID = item.ActividadID, ProgramaID = item.Programa.ProgramaID })
+            @Html.ActionLink("Editar", "EditaActividad", new { ActividadID = item.ActividadID, ProgramaID = item.Programa.ProgramaID}) |
+            @Html.ActionLink("Eliminar", "EliminaActividad", new { ActividadID = item.ActividadID, ProgramaID = item.Programa.ProgramaID })
         </td>
     </tr>
 }
