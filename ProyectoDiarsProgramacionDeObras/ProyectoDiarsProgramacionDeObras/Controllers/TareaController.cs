@@ -11,7 +11,7 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
     public class TareaController : Controller
     {
         [HttpGet]
-        public ActionResult ListaTarea(int ActividadID)
+        public ActionResult ListaTarea(int ActividadID = 1)
         {
             List<entTarea> lista = logTarea.Instancia.ListarTarea(ActividadID);
             ViewBag.listaTarea = lista;
