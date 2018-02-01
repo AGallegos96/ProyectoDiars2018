@@ -11,9 +11,9 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
     public class TareaController : Controller
     {
         [HttpGet]
-        public ActionResult ListaTarea()
+        public ActionResult ListaTarea(int ActividadID)
         {
-            List<entTarea> lista = logTarea.Instancia.ListarTarea();
+            List<entTarea> lista = logTarea.Instancia.ListarTarea(ActividadID);
             ViewBag.listaTarea = lista;
             return View(lista);
         }
@@ -21,9 +21,6 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         [HttpGet]
         public ActionResult NuevaTarea()
         {
-            List<entTarea> lista = logTarea.Instancia.ListarTarea();
-            var lsTipoProducto = new SelectList(lista, "TareaID", "nombreObra","duracion");
-            ViewBag.Lista = lsTipoProducto;
             return View();
         }
 
@@ -51,9 +48,9 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         }
 
         [HttpGet]
-        public ActionResult EditaTarea(int tareaID)
+        public ActionResult EditaTarea(int tareaID, int actividadID)
         {
-            entTarea a = logTarea.Instancia.ObtenerTarea(tareaID);
+            entTarea a = logTarea.Instancia.ObtenerTarea(tareaID, actividadID);
             return View(a);
         }
 
@@ -76,6 +73,20 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
             catch (ApplicationException ex)
             {
                 return RedirectToAction("EditaTarea", new { msjException = ex.Message });
+            }
+        }
+
+        [HttpGet]
+        public ActionResult EliminaTarea(int tareaID, int actividadID)
+        {
+            try
+            {
+                Boolean elimina = logTarea.Instancia.EliminaTarea(tareaID,actividadID);
+                return RedirectToAction("ListaTarea");
+            }
+            catch (ApplicationException ex)
+            {
+                return RedirectToAction("ListaTarea", new { msjException = ex.Message });
             }
         }
     }

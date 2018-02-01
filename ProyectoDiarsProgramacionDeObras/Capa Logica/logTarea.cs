@@ -19,11 +19,11 @@ namespace CapaLogica
         #endregion
 
         #region Metodos
-        public List<entTarea> ListarTarea()
+        public List<entTarea> ListarTarea(int actividadID)
         {
             try
             {
-                List<entTarea> lista = daoTarea.Instancia.ListarTarea();
+                List<entTarea> lista = daoTarea.Instancia.ListarTarea(actividadID);
                 return lista;
             }
             catch (Exception e)
@@ -32,11 +32,11 @@ namespace CapaLogica
             }
         }
 
-        public Boolean InsertarTarea(entTarea a)
+        public Boolean InsertarTarea(entTarea tarea)
         {
             try
             {
-                Boolean Inserta = daoTarea.Instancia.InsertarTarea(a);
+                Boolean Inserta = daoTarea.Instancia.InsertarTarea(tarea);
                 return Inserta;
             }
             catch (Exception e)
@@ -46,11 +46,11 @@ namespace CapaLogica
 
         }
 
-        public Boolean EditaTarea(entTarea a)
+        public Boolean EditaTarea(entTarea tarea)
         {
             try
             {
-                Boolean edita = daoTarea.Instancia.EditaTarea(a);
+                Boolean edita = daoTarea.Instancia.EditaTarea(tarea);
                 return edita;
             }
             catch (Exception e)
@@ -60,11 +60,11 @@ namespace CapaLogica
 
         }
 
-        public entTarea ObtenerTarea(int tareaID)
+        public entTarea ObtenerTarea(int tareaID, int actividadID)
         {
             try
             {
-                entTarea edita = daoTarea.Instancia.ObtenerTarea(tareaID);
+                entTarea edita = daoTarea.Instancia.ObtenerTarea(tareaID, actividadID);
                 return edita;
             }
             catch (Exception e)
@@ -73,7 +73,17 @@ namespace CapaLogica
             }
 
         }
-
+        public Boolean EliminaTarea(int TareaID, int ActividadID)
+        {
+            try
+            {
+                return daoActividad.Instancia.EliminarActividad(TareaID, ActividadID);
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+        }
         #endregion
     }
 }

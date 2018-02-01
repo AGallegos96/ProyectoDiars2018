@@ -7,7 +7,7 @@
 <h2>ListaTarea</h2>
 
 <p>
-    @Html.ActionLink("Crear Tarea", "NuevaTarea", "Tarea")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -16,6 +16,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.nombreTarea)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.duracionTarea)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.numeroDeOperarios)
@@ -30,6 +33,9 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.nombreTarea)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.duracionTarea)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.numeroDeOperarios)
