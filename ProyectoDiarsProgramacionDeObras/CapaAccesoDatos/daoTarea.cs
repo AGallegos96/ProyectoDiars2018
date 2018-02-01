@@ -29,20 +29,21 @@ namespace CapaAccesoDatos
 
             try
             {
+
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spListaTarea", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@prmintactividadID", actividadID);
+                cmd.Parameters.AddWithValue("@prmintactividaID", actividadID);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     entTarea ti = new entTarea();
-                    ti.tareaID = Convert.ToInt16(dr["tareaID"]);
+                    ti.tareaID = Convert.ToInt16(dr["TareaID"]);
                     ti.Actividad.ActividadID = Convert.ToInt16(dr["ActividadID"]);
-                    ti.nombreTarea = dr["nombreTarea"].ToString();
-                    ti.duracionTarea = Convert.ToInt16(dr["duracionTarea"]);
-                    ti.numeroDeOperarios = Convert.ToInt16(dr["numeroDeOperarios"]);
+                    ti.nombreTarea = dr["Nombretarea"].ToString();
+                    ti.duracionTarea = Convert.ToInt16(dr["Duraciontarea"]);
+                    ti.numeroDeOperarios = Convert.ToInt16(dr["Numerooperariostarea"]);
                     lista.Add(ti);
                 }
             }
@@ -97,11 +98,11 @@ namespace CapaAccesoDatos
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    tarea.tareaID = Convert.ToInt16(dr["tareaID"]);
+                    tarea.tareaID = Convert.ToInt16(dr["TareaID"]);
                     tarea.Actividad.ActividadID = Convert.ToInt16(dr["ActividadID"]);
-                    tarea.nombreTarea = dr["nombreTarea"].ToString();
-                    tarea.duracionTarea = Convert.ToInt16(dr["duracionTarea"]);
-                    tarea.numeroDeOperarios = Convert.ToInt16(dr["numeroDeOperarios"]);
+                    tarea.nombreTarea = dr["Nombretarea"].ToString();
+                    tarea.duracionTarea = Convert.ToInt16(dr["Duraciontarea"]);
+                    tarea.numeroDeOperarios = Convert.ToInt16(dr["Numerooperariostarea"]);
                 }
             }
             catch (Exception e)
