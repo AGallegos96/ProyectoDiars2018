@@ -10,10 +10,13 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
 {
     public class ActividadController : Controller
     {
+        public static int codigoPrograma { get; set; }
+
         [HttpGet]
         public ActionResult ListaActividad(int ProgramaID)
         {
             List<entActividad> lista = logActividad.Instancia.ListarActividad(ProgramaID);
+            codigoPrograma = ProgramaID;
             ViewBag.lista = lista;
             return View(lista);
         }
@@ -31,6 +34,7 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         {
             try
             {
+                actividad.Programa = logPrograma.Instancia.ObtenerPrograma(codigoPrograma);
                 Boolean inserta = logActividad.Instancia.InsertaActividad(actividad);
                 if (inserta)
                 {
@@ -51,7 +55,9 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         [HttpGet]
         public ActionResult EditaActividad(int ActividadID, int ProgramaID)
         {
+            
             entActividad actividad = logActividad.Instancia.ObtenerActividad(ActividadID, ProgramaID);
+            actividad.Programa = logPrograma.Instancia.ObtenerPrograma(ProgramaID);
             if (actividad == null)
             {
                 return HttpNotFound();
@@ -64,10 +70,11 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         {
             try
             {
+                actividad.Programa = logPrograma.Instancia.ObtenerPrograma(codigoPrograma);
                 Boolean edita = logActividad.Instancia.EditaActividad(actividad);
                 if (edita)
                 {
-                    return RedirectToAction("ListaActividad");
+                    return RedirectToAction("ListaActividad", new { ProgramaID = actividad.Programa.ProgramaID });
                 }
                 else
                 {
@@ -86,7 +93,7 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
             try
             {
                 Boolean edita = logActividad.Instancia.EliminaActividad(ActividadID, ProgramaID);
-                return RedirectToAction("ListaActividad");
+                return RedirectToAction("ListaActividad", new { ProgramaID = ProgramaID });
             }
             catch (ApplicationException ex)
             {
