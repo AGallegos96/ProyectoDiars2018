@@ -13,6 +13,7 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         [HttpGet]
         public ActionResult ListaTarea(int ActividadID)
         {
+            ActividadID = 4;
             List<entTarea> lista = logTarea.Instancia.ListarTarea(ActividadID);
             ViewBag.listaTarea = lista;
             return View(lista);
