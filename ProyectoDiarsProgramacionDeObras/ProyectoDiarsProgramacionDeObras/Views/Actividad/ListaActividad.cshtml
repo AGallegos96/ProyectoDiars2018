@@ -1,13 +1,14 @@
 ﻿@model IEnumerable<CapaEntidad.entActividad>
 
 @{
-    ViewBag.Title = "ListaActividad";
+    ViewBag.Title = "Lista de Actividades";
+    int ProgramaID = Model.ElementAt(0).Programa.ProgramaID;
 }
 
 <h2>Lista de Actividades</h2>
 
 <p>
-    @Html.ActionLink("Crear Actividad", "NuevaActividad")
+    @Html.ActionLink("Crear Actividad", "NuevaActividad", new { ProgramaID = ProgramaID })
 </p>
 <table class="table">
     <tr>

@@ -19,9 +19,11 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         }
 
         [HttpGet]
-        public ActionResult NuevaActividad()
+        public ActionResult NuevaActividad(int ProgramaID)
         {
-            return View();
+            entActividad actividad = new entActividad();
+            actividad.Programa = logPrograma.Instancia.ObtenerPrograma(ProgramaID);
+            return View(actividad);
         }
 
         [HttpPost]
@@ -49,9 +51,7 @@ namespace ProyectoDiarsProgramacionDeObras.Controllers
         [HttpGet]
         public ActionResult EditaActividad(int ActividadID, int ProgramaID)
         {
-            entActividad actividad = new entActividad();
-            actividad = logActividad.Instancia.ObtenerActividad(ActividadID, ProgramaID);
-            actividad.Programa = logPrograma.Instancia.ObtenerPrograma(ProgramaID);
+            entActividad actividad = logActividad.Instancia.ObtenerActividad(ActividadID, ProgramaID);
             if (actividad == null)
             {
                 return HttpNotFound();
